@@ -1,0 +1,53 @@
+{
+  "name": "@myscope/monorepo",
+  "version": "1.0.0",
+  "description": "Monorepo Starter Projects",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "start:webapp": "yarn workspace @myscope/webapp start",
+    "build:webapp": "yarn workspace @myscope/webapp build",
+    "build:dep:webapp": "yarn build:webapp && mkdir -p dist && mv packages/webapp/build dist/webapp",
+    "test:webapp": "yarn workspace @myscope/webapp test",
+    "start:common": "yarn workspace @myscope/common start",
+    "build:common": "yarn workspace @myscope/common build",
+    "build:dep:common": "yarn build:common && mkdir -p dist && mv packages/common/build dist/common",
+    "test:common": "yarn workspace @myscope/common test",
+    "clean": "rm -rf dist",
+    "build": "yarn clean && yarn build:dep:webapp && yarn build:dep:common",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:ci": "yarn test --silent --ci=true --coverage --coverageReporters=cobertura --coverageReporters=lcov --maxWorkers=4",
+    "lint": "eslint --fix packages/**/*.{ts,tsx}",
+    "release": "standard-version",
+    "release:patch": "standard-version --release-as patch",
+    "release:minor": "standard-version --release-as minor",
+    "release:major": "standard-version --release-as major",
+    "release:tags": "standard-version && git push --follow-tags origin master",
+    "ncu": "ncu --deep",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "12.1.4",
+    "@commitlint/config-conventional": "12.1.4",
+    "@typescript-eslint/eslint-plugin": "4.23.0",
+    "@typescript-eslint/parser": "4.23.0",
+    "eslint": "7.26.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-prettier": "3.4.0",
+    "eslint-plugin-react": "7.23.2",
+    "husky": "6.0.0",
+    "lint-staged": "11.0.0",
+    "npm-check-updates": "11.5.11",
+    "prettier": "2.3.0",
+    "standard-version": "9.3.0"
+  },
+  "lint-staged": {
+    "*.+(js|jsx|ts|tsx)": [
+      "eslint --fix"
+    ]
+  }
+}
