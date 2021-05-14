@@ -615,7 +615,7 @@ yarn error when installing dependencies in workspace
 
 ```bash
 error An unexpected error occurred: "expected workspace package to exist for \"eslint\"".
-info If you think this is a bug, please open a bug report with the information provided in "/Users/user/Documents/smartprotection/ts-monorepo/packages/apps/user-portal/yarn-error.log"
+info If you think this is a bug, please open a bug report with the information provided in "/Users/user/Documents/yourcompany/monorepo-starter/packages/webapp/yarn-error.log"
 ```
 
 ## How to fix it
