@@ -1,10 +1,12 @@
 import React from 'react'
 import { StyledButton } from './Button.styles'
 
-export type ButtonProps = {
-  title: string
-} & React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
+export type CustomButtonProps = {
+  text?: string
+} & ButtonProps
 
-export const Button: React.FunctionComponent<ButtonProps> = ({ title, ...props }) => (
-  <StyledButton {...props}>{title}</StyledButton>
+export const Button: React.FC<CustomButtonProps> = ({ text, children, ...props }) => (
+  <StyledButton data-testid="testButton" {...props}>
+    {text || children}
+  </StyledButton>
 )

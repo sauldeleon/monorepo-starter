@@ -13,7 +13,7 @@ export const App: React.FC = () => (
       <AppLink href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
         Learn React
       </AppLink>
-      <Button style={{ marginTop: 20 }} title="Welcome" />
+      <Button style={{ marginTop: 20 }} text="Welcome" />
     </AppHeader>
   </AppWrapper>
 )

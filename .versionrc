@@ -13,6 +13,10 @@
       "type": "json"
     },
     {
+      "filename": "packages/webapp-redux/package.json",
+      "type": "json"
+    },
+    {
       "filename": "packages/common/package.json",
       "type": "json"
     }

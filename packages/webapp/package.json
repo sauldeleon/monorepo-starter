@@ -1,6 +1,6 @@
 {
   "name": "@myscope/webapp",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "React application",
   "private": true,
   "dependencies": {
@@ -10,16 +10,16 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-scripts": "4.0.3",
-    "typescript": "4.2.4"
+    "typescript": "4.3.2"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "5.12.0",
-    "@testing-library/react": "11.2.6",
+    "@testing-library/jest-dom": "5.13.0",
+    "@testing-library/react": "11.2.7",
     "@testing-library/user-event": "13.1.9",
     "@types/jest": "26.0.23",
-    "@types/node": "15.0.3",
-    "@types/react": "17.0.5",
-    "@types/react-dom": "17.0.5",
+    "@types/node": "15.12.1",
+    "@types/react": "17.0.9",
+    "@types/react-dom": "17.0.6",
     "react-app-rewired": "2.1.8",
     "ts-jest": "26.5.6",
     "tsconfig-paths-webpack-plugin": "3.5.1"

@@ -47,8 +47,8 @@ Below you will find some information on how to perform common tasks.<br>
       - [Linux, OS X (Bash)](#linux-os-x-bash)
     - [Adding Development Environment Variables In `.env`](#adding-development-environment-variables-in-env)
   - [Using HTTPS in Development](#using-https-in-development)
-      - [Windows (cmd.exe)](#windows-cmdexe-1)
-      - [Linux, OS X (Bash)](#linux-os-x-bash-1)
+    - [Windows (cmd.exe)](#windows-cmdexe-1)
+    - [Linux, OS X (Bash)](#linux-os-x-bash-1)
   - [Running Tests](#running-tests)
     - [Filename Conventions](#filename-conventions)
     - [Command Line Interface](#command-line-interface)
@@ -421,6 +421,15 @@ Please refer to the [dotenv documentation](https://github.com/motdotla/dotenv) f
 
 > Note: If you are defining environment variables for development, your CI and/or hosting platform will most likely need
 > these defined as well. Consult their documentation how to do this. For example, see the documentation for [Travis CI](https://docs.travis-ci.com/user/environment-variables/) or [Heroku](https://devcenter.heroku.com/articles/config-vars).
+
+For each Create React App bootstrapped application you will need to set a port number in the `.env` file which is ignored from `.gitignore`, so you **must** create one per project like
+
+```
+PORT=XXXXX
+# more environment variables
+```
+
+being the port number different if you want to start multiple applications at the same time in local development mode.
 
 ## Using HTTPS in Development
 
