@@ -1,0 +1,46 @@
+{
+  "name": "@myscope/webapp-redux",
+  "version": "1.0.1",
+  "private": true,
+  "dependencies": {
+    "@myscope/common": "*",
+    "@emotion/react": "11.4.0",
+    "@emotion/styled": "11.3.0",
+    "@reduxjs/toolkit": "1.5.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-redux": "7.2.4",
+    "react-scripts": "4.0.3",
+    "typescript": "4.3.2"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "5.13.0",
+    "@testing-library/react": "11.2.7",
+    "@testing-library/user-event": "13.1.9",
+    "@types/jest": "26.0.23",
+    "@types/node": "15.12.1",
+    "@types/react": "17.0.9",
+    "@types/react-redux": "7.1.16",
+    "@types/react-dom": "17.0.6",
+    "react-app-rewired": "2.1.8",
+    "ts-jest": "26.5.6",
+    "tsconfig-paths-webpack-plugin": "3.5.1"
+  },
+  "scripts": {
+    "start": "SKIP_PREFLIGHT_CHECK=true react-app-rewired start",
+    "build": "SKIP_PREFLIGHT_CHECK=true react-app-rewired build",
+    "test": "jest"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
