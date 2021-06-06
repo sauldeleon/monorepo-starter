@@ -15,6 +15,10 @@ Below you will find some information on how to perform common tasks.<br>
     - [`yarn build:webapp`](#yarn-buildwebapp)
     - [`yarn build:dep:webapp`](#yarn-builddepwebapp)
     - [`yarn test:webapp`](#yarn-testwebapp)
+    - [`yarn start:webapp-redux`](#yarn-startwebapp-redux)
+    - [`yarn build:webapp-redux`](#yarn-buildwebapp-redux)
+    - [`yarn build:dep:webapp-redux`](#yarn-builddepwebapp-redux)
+    - [`yarn test:webapp-redux`](#yarn-testwebapp-redux)
     - [`yarn start:common`](#yarn-startcommon)
     - [`yarn build:common`](#yarn-buildcommon)
     - [`yarn build:dep:common`](#yarn-builddepcommon)
@@ -124,13 +128,34 @@ Your app is ready to be deployed!
 
 ### `yarn build:dep:webapp`
 
-Generates the build folder of the compiled files for Main web application <br>
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Same as `yarn build:webapp` but it moves the files to the root directory.
 
 ### `yarn test:webapp`
 
 Launches the test runner for the Main web application.<br>
+See the section about [running tests](#running-tests) for more information.
+
+### `yarn start:webapp-redux`
+
+Runs the Redux web application in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.<br>
+You will also see any lint errors in the console.
+
+### `yarn build:webapp-redux`
+
+Generates the build folder of the compiled files for Redux web application <br>
+The build is minified and the filenames include the hashes.<br>
+Your app is ready to be deployed!
+
+### `yarn build:dep:webapp-redux`
+
+Same as `yarn build:webapp-redux` but it moves the files to the root directory.
+
+### `yarn test:webapp-redux`
+
+Launches the test runner for the Redux web application.<br>
 See the section about [running tests](#running-tests) for more information.
 
 ### `yarn start:common`
@@ -149,9 +174,7 @@ It will generate a static folder that can be deployed anywhere.<br>
 
 ### `yarn build:dep:common`
 
-Generates the build folder of the compiled files for Main web application <br>
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Same as `yarn build:common` but it moves the files to the root directory.
 
 ### `yarn test:common`
 
