@@ -1,9 +1,14 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit'
+import { axiosMiddleware } from './middleware/api/api'
+
 import counterReducer from './reducers/counter'
+import usersReducer from './reducers/users'
 
 export const store = configureStore({
+  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(axiosMiddleware),
   reducer: {
     counter: counterReducer,
+    users: usersReducer,
   },
 })
 
