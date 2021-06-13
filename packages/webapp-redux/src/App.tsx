@@ -1,4 +1,11 @@
 import React from 'react'
-import { AppRouter } from './AppRouter'
+import { Provider } from 'react-redux'
 
-export const App: React.FC = () => <AppRouter />
+import { AppRouter } from './AppRouter'
+import { store } from './app/store'
+
+export const App: React.FC = () => (
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>
+)

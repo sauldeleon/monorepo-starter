@@ -4,12 +4,12 @@ import { fetchCount } from '../../../services/counter'
 
 export interface CounterState {
   value: number
-  status: 'idle' | 'loading' | 'failed'
+  status: ApiCallStatus
 }
 
 const initialState: CounterState = {
   value: 0,
-  status: 'idle',
+  status: 'IDLE',
 }
 
 // The function below is called a thunk and allows us to perform async logic. It
@@ -43,10 +43,10 @@ export const counterSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(incrementAsync.pending, state => {
-        state.status = 'loading'
+        state.status = 'LOADING'
       })
       .addCase(incrementAsync.fulfilled, (state, action) => {
-        state.status = 'idle'
+        state.status = 'IDLE'
         state.value += action.payload
       })
   },

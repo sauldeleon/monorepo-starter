@@ -1,9 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux'
 import { Global, css } from '@emotion/react'
 
-import { store } from './app/store'
 import { App } from './App'
 
 ReactDOM.render(
@@ -22,9 +20,7 @@ ReactDOM.render(
         }
       `}
     />
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <App />
   </React.StrictMode>,
   document.getElementById('root'),
 )

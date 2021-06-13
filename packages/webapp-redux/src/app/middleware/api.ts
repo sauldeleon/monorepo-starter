@@ -7,9 +7,10 @@ export const axiosMiddleware: Middleware<Dispatch> =
   ({ dispatch }: MiddlewareAPI) =>
   next =>
   (action: AnyAction) => {
-    next(action)
-
-    if (action.type !== API_ACTION) return
+    if (action.type !== API_ACTION) {
+      next(action)
+      return
+    }
 
     const { url, method, data, accessToken, onSuccess, onFailure, label, headers } = action.payload
     const dataOrParams = ['GET', 'DELETE'].includes(method) ? 'params' : 'data'
@@ -23,7 +24,7 @@ export const axiosMiddleware: Middleware<Dispatch> =
       dispatch(apiStart(label))
     }
 
-    axios
+    return axios
       .request({
         url,
         method,
@@ -35,7 +36,7 @@ export const axiosMiddleware: Middleware<Dispatch> =
       })
       .catch(error => {
         dispatch(apiError(error))
-        dispatch(onFailure(error))
+        dispatch(onFailure(error.response.statusText))
 
         if (error.response && error.response.status === 403) {
           dispatch(accessDenied(window.location.pathname))
@@ -45,5 +46,6 @@ export const axiosMiddleware: Middleware<Dispatch> =
         if (label) {
           dispatch(apiEnd(label))
         }
+        next(action)
       })
   }

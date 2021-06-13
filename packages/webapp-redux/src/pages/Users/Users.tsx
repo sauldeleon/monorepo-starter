@@ -16,7 +16,9 @@ export const Users: React.FC = () => {
       <h1>Users</h1>
       <div>
         {users.map((user, key) => (
-          <div key={key}>{user.name}</div>
+          <div key={key} data-testid="userNameDiv">
+            {user.name}
+          </div>
         ))}
       </div>
     </div>

@@ -11,12 +11,16 @@ interface ApiPayload {
   headersOverride?: Record<string, unknown>
 }
 
-export const apiStart = createAction<string>('api/start')
-export const apiEnd = createAction<string>('api/end')
-export const accessDenied = createAction('api/accessDenied', (url: string) => ({ payload: { url } }))
-export const apiError = createAction<string>('api/error')
-
 export const API_ACTION = 'api/action'
+export const API_START = 'api/start'
+export const API_END = 'api/end'
+export const API_DENIED = 'api/accessDenied'
+export const API_ERROR = 'api/error'
+
+export const apiStart = createAction<string>(API_START)
+export const apiEnd = createAction<string>(API_END)
+export const accessDenied = createAction(API_DENIED, (url: string) => ({ payload: { url } }))
+export const apiError = createAction<string>(API_ERROR)
 export const apiAction = createAction(
   API_ACTION,
   ({
