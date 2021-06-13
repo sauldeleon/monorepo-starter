@@ -1,0 +1,16 @@
+[
+  {
+    "id": "1",
+    "createdAt": "2021-06-12T04:37:12.801Z",
+    "name": "Dean Lockman",
+    "avatar": "https://cdn.fakercloud.com/avatars/8d3k_128.jpg",
+    "email": "Malvina12@gmail.com"
+  },
+  {
+    "id": "2",
+    "createdAt": "2021-06-12T00:36:47.743Z",
+    "name": "Johnnie Marvin",
+    "avatar": "https://cdn.fakercloud.com/avatars/coreyweb_128.jpg",
+    "email": "German98@yahoo.com"
+  }
+]

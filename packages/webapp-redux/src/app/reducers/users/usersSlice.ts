@@ -1,6 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+// import { createAsyncThunk } from '@reduxjs/toolkit'
 import { apiAction } from '../../actions/api'
 import { AppThunk, RootState } from '../../store'
+// import { ThunkApiAppConfig } from '../../store'
 
 export interface UsersState {
   list: User[]
@@ -10,6 +12,70 @@ export interface UsersState {
 const initialState: UsersState = {
   list: [],
   status: 'IDLE',
+}
+
+/*
+With App Typed properties
+```
+  export const fetchUsersAppThunk = createAsyncThunk<unknown, void, ThunkApiAppConfig>(
+    'users/fetchUsersApp',
+    async (arg, thunkApi) => {
+      const { dispatch } = thunkApi
+      dispatch(loadingUsers())
+      dispatch(
+        apiAction({
+          url: '/users',
+          onSuccess: setUsers,
+          onFailure: errorUsers,
+          label: 'FETCH_USERS',
+        }),
+      )
+    },
+  )
+```
+*/
+
+/* 
+With Default Typed properties
+```
+  export const fetchUsersDefaultThunk = createAsyncThunk('users/fetchUsersDefault', async (arg, thunkApi) => {
+    const { dispatch } = thunkApi
+    dispatch(
+      apiAction({
+        url: '/users',
+        onSuccess: setUsers,
+        onFailure: errorUsers,
+        label: 'FETCH_USERS',
+      }),
+    )
+  })
+```
+
+If using this method, you need to include it on the extrareducers section of createSlice method like:
+```
+  extraReducers: builder => {
+      builder
+        .addCase(fetchUsersDefaultThunk.pending, state => {
+          state.status = 'LOADING'
+        })
+        .addCase(fetchUsersDefaultThunk.fulfilled, state => {
+          state.status = 'IDLE'
+        })
+    }
+```
+*/
+
+// Without using createAsyncThunk helper function
+export const fetchUsers = (): AppThunk => dispatch => {
+  dispatch(loadingUsers())
+  dispatch(
+    apiAction({
+      url: '/users',
+      onSuccess: setUsers,
+      onFailure: errorUsers,
+      label: 'FETCH_USERS',
+    }),
+  )
 }
 
 export const usersSlice = createSlice({
@@ -25,24 +91,22 @@ export const usersSlice = createSlice({
     },
     errorUsers: state => {
       state.status = 'FAILED'
+      state.list = []
     },
   },
+  // extraReducers: builder => {
+  //   builder
+  //     .addCase(fetchUsersDefaultThunk.pending, state => {
+  //       state.status = 'LOADING'
+  //     })
+  //     .addCase(fetchUsersDefaultThunk.fulfilled, state => {
+  //       state.status = 'IDLE'
+  //     })
+  // },
 })
 
 export const { loadingUsers, setUsers, errorUsers } = usersSlice.actions
 
 export const selectUsers = (state: RootState) => state.users.list
-
-export const fetchUsers = (): AppThunk => dispatch => {
-  dispatch(loadingUsers())
-  dispatch(
-    apiAction({
-      url: '/users',
-      onSuccess: setUsers,
-      onFailure: errorUsers,
-      label: 'FETCH_USERS',
-    }),
-  )
-}
 
 export default usersSlice.reducer
