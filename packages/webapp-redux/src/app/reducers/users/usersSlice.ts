@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { apiAction } from '../../middleware/api/actions'
+import { apiAction } from '../../actions/api'
 import { AppThunk, RootState } from '../../store'
 
 export interface UsersState {

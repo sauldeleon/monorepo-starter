@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { MiddlewareAPI, Middleware, Dispatch, AnyAction } from 'redux'
 
-import { apiStart, apiEnd, apiError, accessDenied, API_ACTION } from './actions'
+import { apiStart, apiEnd, apiError, accessDenied, API_ACTION } from '../actions/api'
 
 export const axiosMiddleware: Middleware<Dispatch> =
   ({ dispatch }: MiddlewareAPI) =>

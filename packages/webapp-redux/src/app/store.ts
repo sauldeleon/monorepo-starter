@@ -1,5 +1,5 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit'
-import { axiosMiddleware } from './middleware/api/api'
+import { axiosMiddleware } from './middleware/api'
 
 import counterReducer from './reducers/counter'
 import usersReducer from './reducers/users'
