@@ -1,10 +1,10 @@
 import styled from '@emotion/styled'
 
-export const AppWrapper = styled.div`
+export const HomeWrapper = styled.div`
   text-align: center;
 `
 
-export const AppHeader = styled.header`
+export const HomeHeader = styled.header`
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -15,7 +15,7 @@ export const AppHeader = styled.header`
   color: white;
 `
 
-export const AppLogo = styled.img`
+export const HomeLogo = styled.img`
   height: 40vmin;
   pointer-events: none;
 
@@ -33,6 +33,6 @@ export const AppLogo = styled.img`
   }
 `
 
-export const AppLink = styled.a`
+export const HomeLink = styled.a`
   color: #61dafb;
 `
