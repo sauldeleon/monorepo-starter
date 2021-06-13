@@ -12,9 +12,10 @@ describe('Users page', () => {
   })
 
   test('renders Users list if API response is OK', async () => {
-    const { getAllByTestId } = reduxRender(<Users />)
-    await waitFor(() => getAllByTestId('userNameDiv'))
-    const userNameElements = getAllByTestId('userNameDiv')
+    const { queryAllByTestId, getByText } = reduxRender(<Users />)
+    await waitFor(() => getByText('Users'))
+    await waitFor(() => queryAllByTestId('userNameDiv'))
+    const userNameElements = queryAllByTestId('userNameDiv')
     expect(userNameElements).toHaveLength(2)
   })
 
@@ -26,7 +27,7 @@ describe('Users page', () => {
     )
     const { queryAllByTestId, getByText } = reduxRender(<Users />)
     await waitFor(() => getByText('Users'))
-    await waitFor(() => getByText('Users'))
+    await waitFor(() => queryAllByTestId('userNameDiv'))
     const userNameElements = queryAllByTestId('userNameDiv')
     expect(userNameElements).toHaveLength(0)
   })

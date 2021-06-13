@@ -1,12 +1,10 @@
-// test-utils.js
 import React from 'react'
-import { render, RenderResult } from '@testing-library/react'
 import { Provider } from 'react-redux'
-// Import your own store
-import { store } from '../app/store'
+import { render, RenderResult } from '@testing-library/react'
+import { createStore } from '../app/store'
 
 const reduxRender = (children: React.ReactElement): RenderResult =>
-  render(<Provider store={store}>{children}</Provider>)
+  render(<Provider store={createStore()}>{children}</Provider>)
 
 // re-export everything
 export * from '@testing-library/react'
