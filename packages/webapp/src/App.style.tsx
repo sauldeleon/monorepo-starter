@@ -6,7 +6,6 @@ export const AppWrapper = styled.div`
 
 export const AppHeader = styled.header`
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;

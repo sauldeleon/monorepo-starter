@@ -2,6 +2,16 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Available API
+
+Powered by [mockapi.io](https://www.mockapi.io/).
+
+Put this in the `.env` file
+
+```
+REACT_APP_BASE_URL = https://60c50e7cec8ef800175e0db9.mockapi.io/api/v1/
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
