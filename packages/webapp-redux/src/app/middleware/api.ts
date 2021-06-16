@@ -7,10 +7,9 @@ export const axiosMiddleware: Middleware<Dispatch> =
   ({ dispatch }: MiddlewareAPI) =>
   next =>
   (action: AnyAction) => {
-    if (action.type !== API_ACTION) {
-      next(action)
-      return
-    }
+    next(action)
+
+    if (action.type !== API_ACTION) return
 
     const { url, method, data, accessToken, onSuccess, onFailure, label, headers } = action.payload
     const dataOrParams = ['GET', 'DELETE'].includes(method) ? 'params' : 'data'
@@ -24,7 +23,7 @@ export const axiosMiddleware: Middleware<Dispatch> =
       dispatch(apiStart(label))
     }
 
-    return axios
+    axios
       .request({
         url,
         method,
@@ -46,6 +45,5 @@ export const axiosMiddleware: Middleware<Dispatch> =
         if (label) {
           dispatch(apiEnd(label))
         }
-        next(action)
       })
   }
