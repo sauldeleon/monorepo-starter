@@ -4,7 +4,4 @@ module.exports = {
   features: {
     postcss: false,
   },
-  typescript: {
-    reactDocgen: 'none',
-  },
 }

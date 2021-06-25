@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react'
+import { Story, Meta } from '@storybook/react'
 import { Button, CustomButtonProps } from './Button'
 
 export default {
@@ -7,7 +7,7 @@ export default {
   argTypes: {
     text: { control: 'text' },
   },
-}
+} as Meta
 
 const runAlert = () => alert('Hello!')
 
