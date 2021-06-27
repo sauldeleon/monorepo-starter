@@ -7,56 +7,6 @@
     {
       "filename": "yarn.lock",
       "type": "json"
-    },
-    {
-      "filename": "packages/webapp/package.json",
-      "type": "json"
-    },
-    {
-      "filename": "packages/webapp-redux/package.json",
-      "type": "json"
-    },
-    {
-      "filename": "packages/common/package.json",
-      "type": "json"
-    }
-  ],
-  "types": [
-    {
-      "type": "feat",
-      "section": "Features"
-    },
-    {
-      "type": "fix",
-      "section": "Bug Fixes"
-    },
-    {
-      "type": "test",
-      "section": "Tests"
-    },
-    {
-      "type": "ci",
-      "section": "Continuous Integration"
-    },
-    {
-      "type": "chore",
-      "section": "Chore"
-    },
-    {
-      "type": "style",
-      "section": "Styling"
-    },
-    {
-      "type": "docs",
-      "section": "Documentation updates"
-    },
-    {
-      "type": "refactor",
-      "section": "Refactors"
-    },
-    {
-      "type": "perf",
-      "section": "Performance improvements"
     }
   ]
 }
