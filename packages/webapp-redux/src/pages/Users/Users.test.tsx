@@ -1,7 +1,7 @@
-import { reduxRender, waitFor } from '../../utils/test'
+import { reduxRender, waitFor } from '@utils/test'
 import { rest } from 'msw'
 
-import { server } from '../../mocks/server'
+import { server } from '@mocks/server'
 import { Users } from './Users'
 
 describe('Users page', () => {

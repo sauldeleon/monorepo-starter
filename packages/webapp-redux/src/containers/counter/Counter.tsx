@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import { Button, Row } from '@myscope/common'
 
-import { useAppSelector, useAppDispatch } from '../../app/hooks'
+import { useAppSelector, useAppDispatch } from '@redux/hooks'
 import {
   decrement,
   increment,
@@ -8,8 +9,7 @@ import {
   incrementAsync,
   incrementIfOdd,
   selectCount,
-} from '../../app/reducers/counter'
-import { Button, Row } from '@myscope/common'
+} from '@redux/reducers/counter'
 import { CounterSpan, CounterInput } from './Counter.styles'
 
 export const Counter: React.FC = () => {
