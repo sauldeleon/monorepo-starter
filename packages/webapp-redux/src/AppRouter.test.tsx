@@ -1,13 +1,13 @@
 import { render } from '@testing-library/react'
 import { AppRouter } from './AppRouter'
 
-jest.mock('./components', () => ({
-  ...jest.requireActual('./components'),
+jest.mock('@components', () => ({
+  ...jest.requireActual('@components'),
   Layout: ({ children }: any) => <div>{children}</div>,
 }))
 
-jest.mock('./pages', () => ({
-  ...jest.requireActual('./pages'),
+jest.mock('@pages', () => ({
+  ...jest.requireActual('@pages'),
   Home: () => <div>Home</div>,
 }))
 

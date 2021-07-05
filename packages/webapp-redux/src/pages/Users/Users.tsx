@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 
-import { useAppSelector, useAppDispatch } from '../../app/hooks'
-import { selectUsers, fetchUsers } from '../../app/reducers/users'
+import { useAppSelector, useAppDispatch } from '@redux/hooks'
+import { selectUsers, fetchUsers } from '@redux/reducers/users'
 
 export const Users: React.FC = () => {
   const users = useAppSelector(selectUsers)
