@@ -2,8 +2,6 @@
   "extends": "./tsconfig.build.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "paths": {
-      "@myscope/common": ["packages/common/src"]
-    }
+    "paths": {}
   }
 }
