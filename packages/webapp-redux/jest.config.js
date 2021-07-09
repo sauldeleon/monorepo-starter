@@ -11,20 +11,21 @@ module.exports = {
       isolatedModules: true,
     },
   },
-  rootDir: './',
+  rootDir: '../..',
+  roots: [`<rootDir>/packages/${packageName}`],
   collectCoverageFrom: ['src/**/*.{ts,tsx}'],
-  setupFilesAfterEnv: ['<rootDir>/../../setupTests.ts', `<rootDir>/src/setupTests.ts`],
-  testRegex: `(/.*/__tests__/.*|\\.(test|spec))\\.tsx?$`,
+  setupFilesAfterEnv: ['<rootDir>/setupTests.ts', `<rootDir>/packages/${packageName}/src/setupTests.ts`],
+  testRegex: `(packages/${packageName}/.*/__tests__/.*|\\.(test|spec))\\.tsx?$`,
   moduleDirectories: ['node_modules'],
-  modulePaths: [`<rootDir>/src/`],
+  modulePaths: [`<rootDir>/packages/${packageName}/src/`],
   name: packageName,
   displayName: packageName,
   moduleNameMapper: {
-    '\\.(css|less)$': '<rootDir>/../../__mocks__/styleMock.js',
-    '\\.(svg|png)$': '<rootDir>/../../__mocks__/assetsMock.js',
+    '\\.(css|less)$': '<rootDir>/__mocks__/styleMock.js',
+    '\\.(svg|png)$': '<rootDir>/__mocks__/assetsMock.js',
     ...pathsToModuleNameMapper(compilerOptions.paths, {
       // This has to match the baseUrl defined in tsconfig.json.
-      prefix: '<rootDir>',
+      prefix: `<rootDir>/packages/${packageName}`,
     }),
   },
 }

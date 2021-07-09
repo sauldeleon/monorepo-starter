@@ -1,6 +1,6 @@
 const { pathsToModuleNameMapper } = require('ts-jest/utils')
 // Load the config which holds the path aliases.
-const { compilerOptions } = require(require('./tsconfig.json').extends)
+const { compilerOptions } = require('./tsconfig.paths.json')
 
 const packageName = require('./package.json').name.split('@myscope/').pop()
 
@@ -25,7 +25,7 @@ module.exports = {
     '\\.(svg|png)$': '<rootDir>/__mocks__/assetsMock.js',
     ...pathsToModuleNameMapper(compilerOptions.paths, {
       // This has to match the baseUrl defined in tsconfig.json.
-      prefix: '<rootDir>',
+      prefix: `<rootDir>/packages/${packageName}`,
     }),
   },
 }
