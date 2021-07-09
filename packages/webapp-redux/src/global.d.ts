@@ -1,3 +1,5 @@
+/// <reference types="@myscope/common" />
+
 declare global {
   type ApiCallStatus = 'IDLE' | 'LOADING' | 'FAILED'
   type HTTPMethod = 'CONNECT' | 'DELETE' | 'GET' | 'HEAD' | 'OPTIONS' | 'PATCH' | 'POST' | 'PUT' | 'TRACE'
