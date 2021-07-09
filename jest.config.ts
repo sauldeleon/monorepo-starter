@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   projects: ['<rootDir>/packages/*/jest.config.ts'],
   coverageDirectory: '<rootDir>/coverage/',
   collectCoverageFrom: [
