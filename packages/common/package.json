@@ -2,8 +2,8 @@
   "name": "@myscope/common",
   "version": "1.1.1",
   "description": "Common shared components library",
-  "main": "dist/index",
-  "types": "dist/index",
+  "main": "src/index",
+  "types": "src/index",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -17,12 +17,13 @@
     "@emotion/styled": "11.3.0"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "6.3.0",
-    "@storybook/addon-essentials": "6.3.0",
-    "@storybook/addon-links": "6.3.0",
-    "@storybook/node-logger": "6.3.0",
-    "@storybook/preset-create-react-app": "3.1.7",
-    "@storybook/react": "6.3.0",
-    "typescript": "4.3.4"
+    "@storybook/addon-actions": "6.3.4",
+    "@storybook/addon-essentials": "6.3.4",
+    "@storybook/addon-links": "6.3.4",
+    "@storybook/node-logger": "6.3.4",
+    "@storybook/preset-create-react-app": "3.2.0",
+    "@storybook/react": "6.3.4",
+    "typescript": "4.3.5",
+    "ts-node": "10.1.0"
   }
 }

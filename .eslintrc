@@ -36,7 +36,7 @@
   },
   "overrides": [
     {
-      "files": ["**/jest.config.js", "config-overrides.js"],
+      "files": ["**/jest.config.ts", "config-overrides.js"],
       "rules": {
         "@typescript-eslint/no-var-requires": "off"
       }
