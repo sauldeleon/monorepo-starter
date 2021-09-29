@@ -2,7 +2,7 @@
 
 Welcome to the project!
 
-Below you will find some information on how to perform common tasks.<br>
+Below you will find some information on how to perform common tasks.
 
 ## Table of Contents
 
@@ -15,14 +15,17 @@ Below you will find some information on how to perform common tasks.<br>
     - [`yarn build:webapp`](#yarn-buildwebapp)
     - [`yarn build:dep:webapp`](#yarn-builddepwebapp)
     - [`yarn test:webapp`](#yarn-testwebapp)
+    - [`yarn release:webapp`](#yarn-releasewebapp)
     - [`yarn start:webapp-redux`](#yarn-startwebapp-redux)
     - [`yarn build:webapp-redux`](#yarn-buildwebapp-redux)
     - [`yarn build:dep:webapp-redux`](#yarn-builddepwebapp-redux)
     - [`yarn test:webapp-redux`](#yarn-testwebapp-redux)
+    - [`yarn release:webapp-redux`](#yarn-releasewebapp-redux)
     - [`yarn start:common`](#yarn-startcommon)
     - [`yarn build:common`](#yarn-buildcommon)
     - [`yarn build:dep:common`](#yarn-builddepcommon)
     - [`yarn test:common`](#yarn-testcommon)
+    - [`yarn release:common`](#yarn-releasecommon)
     - [`yarn clean`](#yarn-clean)
     - [`yarn clean:install`](#yarn-cleaninstall)
     - [`yarn build`](#yarn-build)
@@ -31,19 +34,15 @@ Below you will find some information on how to perform common tasks.<br>
     - [`yarn test:ci`](#yarn-testci)
     - [`yarn lint`](#yarn-lint)
     - [`yarn release`](#yarn-release)
-    - [`yarn release:patch`](#yarn-releasepatch)
-    - [`yarn release:minor`](#yarn-releaseminor)
-    - [`yarn release:major`](#yarn-releasemajor)
-    - [`yarn release:tags`](#yarn-releasetags)
     - [`yarn ncu`](#yarn-ncu)
   - [Generate changelog](#generate-changelog)
   - [Installing a Dependency](#installing-a-dependency)
   - [Updating Dependencies](#updating-dependencies)
   - [Importing a Component](#importing-a-component)
-    - [`Button.tsx`](#buttontsx)
+    - [`ButtonExample.tsx`](#buttonexampletsx)
     - [`ButtonAndMore.tsx`](#buttonandmoretsx)
   - [Styling with Emotion](#styling-with-emotion)
-    - [`Button.tsx`](#buttontsx-1)
+    - [`Button.tsx`](#buttontsx)
     - [`RedButton.tsx`](#redbuttontsx)
   - [Adding Custom Environment Variables](#adding-custom-environment-variables)
     - [Adding Temporary Environment Variables In Your Shell](#adding-temporary-environment-variables-in-your-shell)
@@ -67,13 +66,14 @@ Below you will find some information on how to perform common tasks.<br>
     - [Editor Integration](#editor-integration)
   - [Developing Components in Isolation](#developing-components-in-isolation)
   - [Troubleshooting](#troubleshooting)
+  - [How to fix it](#how-to-fix-it)
   - [Usefull VSCode extensions](#usefull-vscode-extensions)
 
 ## Folder Structure
 
 This monorepo is structured as follows
 
-```
+```text
 monorepo/
   README.md
   node_modules/
@@ -100,13 +100,13 @@ In the project directory, you can run:
 
 Run
 
-```
+```sh
 yarn
 ```
 
 to install the projects dependencies, and the dependencies within the different workspaces. You can run also
 
-```
+```sh
 yarn `command`
 ```
 
@@ -114,16 +114,16 @@ which will do whatever `command` does, and must be defined on `scripts` section 
 
 ### `yarn start:webapp`
 
-Runs the Main web application in the development mode.<br>
+Runs the Main web application in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
+The page will reload if you make edits.
 You will also see any lint errors in the console.
 
 ### `yarn build:webapp`
 
-Generates the build folder of the compiled files for Main web application <br>
-The build is minified and the filenames include the hashes.<br>
+Generates the build folder of the compiled files for Main web application
+The build is minified and the filenames include the hashes.
 Your app is ready to be deployed!
 
 ### `yarn build:dep:webapp`
@@ -132,21 +132,30 @@ Same as `yarn build:webapp` but it moves the files to the root directory.
 
 ### `yarn test:webapp`
 
-Launches the test runner for the Main web application.<br>
+Launches the test runner for the Main web application.
 See the section about [running tests](#running-tests) for more information.
+
+### `yarn release:webapp`
+
+It launches a release for Webapp application.
+If there is any commit since the last release starting with:
+
+- `fix` will do a patch bump
+- `feat` will do a minor bump
+- `!` will do a major bump.
 
 ### `yarn start:webapp-redux`
 
-Runs the Redux web application in the development mode.<br>
+Runs the Redux web application in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
+The page will reload if you make edits.
 You will also see any lint errors in the console.
 
 ### `yarn build:webapp-redux`
 
-Generates the build folder of the compiled files for Redux web application <br>
-The build is minified and the filenames include the hashes.<br>
+Generates the build folder of the compiled files for Redux web application
+The build is minified and the filenames include the hashes.
 Your app is ready to be deployed!
 
 ### `yarn build:dep:webapp-redux`
@@ -155,22 +164,30 @@ Same as `yarn build:webapp-redux` but it moves the files to the root directory.
 
 ### `yarn test:webapp-redux`
 
-Launches the test runner for the Redux web application.<br>
+Launches the test runner for the Redux web application.
 See the section about [running tests](#running-tests) for more information.
+
+### `yarn release:webapp-redux`
+
+It launches a release for Webapp Redux application.
+
+- `fix` will do a patch bump
+- `feat` will do a minor bump
+- `!` will do a major bump.
 
 ### `yarn start:common`
 
-Runs the Common components library in the development mode.<br>
+Runs the Common components library in the development mode.
 Open [http://localhost:9000](http://localhost:9000) to view it in the browser.
 
-The page will reload if you make edits.<br>
+The page will reload if you make edits.
 You will also see any lint errors in the console.
 
 ### `yarn build:common`
 
-Generates the build folder of the compiled files for Common components library<br>
-The build is minified and the filenames include the hashes.<br>
-It will generate a static folder that can be deployed anywhere.<br>
+Generates the build folder of the compiled files for Common components library
+The build is minified and the filenames include the hashes.
+It will generate a static folder that can be deployed anywhere.
 
 ### `yarn build:dep:common`
 
@@ -178,88 +195,78 @@ Same as `yarn build:common` but it moves the files to the root directory.
 
 ### `yarn test:common`
 
-Launches the test runner for the Common components library.<br>
+Launches the test runner for the Common components library.
 See the section about [running tests](#running-tests) for more information.
+
+### `yarn release:common`
+
+It launches a release for Common library.
+
+- `fix` will do a patch bump
+- `feat` will do a minor bump
+- `!` will do a major bump.
 
 ### `yarn clean`
 
-Removes `dist` folder.<br>
+Removes `dist` folder.
 
 ### `yarn clean:install`
 
-Removes `node_modules` folder and executes installation command.<br>
+Removes `node_modules` folder and executes installation command.
 
 ### `yarn build`
 
-Generates builds for Common components library and Main web application<br>
+Generates builds for Common components library and Main web application
 
 ### `yarn test`
 
-Launches the test runner for entire monorepo.<br>
+Launches the test runner for entire monorepo.
 See the section about [running tests](#running-tests) for more information.
 
 ### `yarn test:watch`
 
-Launches the test runner in interactive mode for entire ts-monorepo.<br>
+Launches the test runner in interactive mode for entire ts-monorepo.
 See the section about [running tests](#running-tests) for more information.
 
 ### `yarn test:ci`
 
-Launches the test runner for entire ts-monorepo and generates the coverage folder.<br>
+Launches the test runner for entire ts-monorepo and generates the coverage folder.
 See the section about [running tests](#running-tests) for more information.
 
 ### `yarn lint`
 
-Launches eslint checker in the entire monorepo.<br>
+Launches eslint checker in the entire monorepo.
 
 ### `yarn release`
 
-Releases an automatic version bump based on commit messages and generates the Changelog.md.<br>
-
-### `yarn release:patch`
-
-Releases a patch version bump based on commit messages and generates the Changelog.md. <br>
-
-### `yarn release:minor`
-
-Releases a minor version bump based on commit messages and generates the Changelog.md. <br>
-
-### `yarn release:major`
-
-Releases a major version bump based on commit messages and generates the Changelog.md.<br>
-
-### `yarn release:tags`
-
-Releases an automatic version bump based on commit messages and generates the Changelog.md. It generate Git tags and pushes them.<br>
+Releases an automatic version bump based on commit messages and generates the Changelog.md.
 
 ### `yarn ncu`
 
-Checks the dependencies in all `package.json` files to see if there are updates.<br>
+Checks the dependencies in all `package.json` files to see if there are updates.
 
 ## Generate changelog
 
-To generate the changelog from the latest git tag, follow the next steps:
+To generate the changelog from the latest git tag for a given package, follow the next steps:
 
-1. Open a branch `chore/release` from latest `master`
-2. Execute one of the `release` commands (_release_, _release:patch_, _release:minor_, _release:major_)
-   1. This command will update the [CHANGELOG.md](./CHANGELOG.md) adding the commits from the latest git tag
-   2. Then an automatic commit will be created and will tag the commit with the new tag according to the version number of the main `package.json`
-3. Push the changes with the tags with `git push --follow-tags origin chore/release`
-4. Open a PR and **merge** the `chore/release` branch (DO NOT SQUASH IT) into `master` branch
-
-You can run `yarn release:tags` that will run steps `2` to `3` but it will decide automatically which version to apply, (_patch_, _minor_, _major_)
+1. Open a branch `chore/release-packageName` from latest `master`
+2. Execute one of the `release` commands (_release_, _release:packageName_)
+   1. This command will update the `CHANGELOG.md` of the given package, or all `CHANGELOG.md` files if not package has been selected
+   2. Then an automatic commit will be created and will tag the commit with the new tag according to the version number of the package json file of the package. The package.json of the root directory will always be 1.0.0
+3. Push the changes with the tags with `git push --follow-tags origin chore/release-packageName`
+4. Open a PR and **merge** the `chore/release-packageName` branch (**DO NOT SQUASH IT**) into `master` branch
 
 ## Installing a Dependency
 
 You may install other dependencies with `yarn`. The flag `-W` indicates that the dependency must be installed in the package.json at root level.
 
-```
+```sh
 yarn -W add <library-name>
 ```
 
 If you want to install a dependency in a specific workspace, then you can do:
 
-```
+```sh
 yarn workspace <workspace_name> add <library-name>
 ```
 
@@ -267,7 +274,7 @@ yarn workspace <workspace_name> add <library-name>
 
 You can install globally [npm-check-updates](https://www.npmjs.com/package/npm-check-updates) and run:
 
-```
+```sh
 ncu
 ```
 
@@ -275,29 +282,29 @@ that will show the dependencies with new versions available to download.
 
 With the following command, you will be able to upgrade versions number:
 
-```
+```sh
 ncu -u
 ```
 
 and then
 
-```
+```sh
 yarn
 ```
 
 ## Importing a Component
 
-This project setup supports ES6 modules thanks to Babel.<br>
+This project setup supports ES6 modules thanks to Babel.
 While you can still use `require()` and `module.exports`, we encourage you to use [`import` and `export`](http://exploringjs.com/es6/ch_modules.html) instead.
 
 For example:
 
-### `Button.tsx`
+### `ButtonExample.tsx`
 
 ```js
 import React from 'react'
 
-export const Button: React.FunctionComponent = () => {
+export const ButtonExample: React.FunctionComponent = () => {
   ...
 }
 ```
@@ -306,11 +313,11 @@ export const Button: React.FunctionComponent = () => {
 
 ```js
 import React from 'react';
-import { Button } from './Button'; // Import a component from another file
+import { ButtonExample } from './ButtonExample'; // Import a component from another file
 
 export const ButtonAndMore: React.FunctionComponent = () => {
   <>
-    <Button />
+    <ButtonExample />
     ...
   </>;
 };
@@ -435,11 +442,11 @@ REACT_APP_SECRET_CODE=abcdef npm start
 
 To define permanent environment variables, create a file called `.env` in the root of your project:
 
-```
+```text
 REACT_APP_SECRET_CODE=abcdef
 ```
 
-These variables will act as the defaults if the machine does not explicitly set them.<br>
+These variables will act as the defaults if the machine does not explicitly set them.
 Please refer to the [dotenv documentation](https://github.com/motdotla/dotenv) for more details.
 
 > Note: If you are defining environment variables for development, your CI and/or hosting platform will most likely need
@@ -447,7 +454,7 @@ Please refer to the [dotenv documentation](https://github.com/motdotla/dotenv) f
 
 For each Create React App bootstrapped application you will need to set a port number in the `.env` file which is ignored from `.gitignore`, so you **must** create one per project like
 
-```
+```text
 PORT=XXXXX
 # more environment variables
 ```
@@ -460,7 +467,7 @@ You may require the dev server to serve pages over HTTPS. One particular case wh
 
 To do this, set the `HTTPS` environment variable to `true`, then start the dev server as usual with `npm start`:
 
-#### Windows (cmd.exe)
+### Windows (cmd.exe)
 
 ```cmd
 set HTTPS=true&&npm start
@@ -527,7 +534,7 @@ it('sums numbers', () => {
 });
 ```
 
-All `expect()` matchers supported by Jest are [extensively documented here](http://facebook.github.io/jest/docs/api.html#expect-value).<br>
+All `expect()` matchers supported by Jest are [extensively documented here](http://facebook.github.io/jest/docs/api.html#expect-value).
 You can also use [`jest.fn()` and `expect(fn).toBeCalled()`](http://facebook.github.io/jest/docs/api.html#tobecalled) to create “spies” or mock functions.
 
 ### Testing Components
@@ -584,7 +591,7 @@ it('renders welcome message', () => {
 });
 ```
 
-All Jest matchers are [extensively documented here](http://facebook.github.io/jest/docs/api.html#expect-value).<br>
+All Jest matchers are [extensively documented here](http://facebook.github.io/jest/docs/api.html#expect-value).
 Nevertheless you can use a third-party assertion library like [Chai](http://chaijs.com/) if you want to, as described below.
 
 ### Using Third Party Assertion Libraries
@@ -619,12 +626,12 @@ global.localStorage = localStorageMock;
 
 ### Focusing and Excluding Tests
 
-You can replace `it()` with `it.skip()` to temporarily exclude a test from being executed.<br>
+You can replace `it()` with `it.skip()` to temporarily exclude a test from being executed.
 Similarly, `it.only()` lets you focus on a specific test without running any other tests.
 
 ### Coverage Reporting
 
-Jest has an integrated coverage reporter that works well with ES6 and requires no configuration.<br>
+Jest has an integrated coverage reporter that works well with ES6 and requires no configuration.
 Run `yarn test:ci` to include a coverage report like this:
 
 ![coverage report](https://i.imgur.com/5bFhnTS.png)
@@ -650,9 +657,9 @@ error An unexpected error occurred: "expected workspace package to exist for \"e
 info If you think this is a bug, please open a bug report with the information provided in "/Users/user/Documents/yourcompany/monorepo-starter/packages/webapp/yarn-error.log"
 ```
 
-## How to fix it
+## How to fix it
 
-https://github.com/yarnpkg/yarn/issues/8405
+<https://github.com/yarnpkg/yarn/issues/8405>
 
 ## Usefull VSCode extensions
 

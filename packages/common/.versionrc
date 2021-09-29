@@ -1,0 +1,43 @@
+{
+  "path": ".",
+  "tag-prefix": "@myscope-common@",
+  "releaseCommitMessageFormat": "chore(release): @myscope-common@{{currentTag}}",
+  "types": [
+    {
+      "type": "feat",
+      "section": "Features"
+    },
+    {
+      "type": "fix",
+      "section": "Bug Fixes"
+    },
+    {
+      "type": "test",
+      "section": "Tests"
+    },
+    {
+      "type": "ci",
+      "section": "Continuous Integration"
+    },
+    {
+      "type": "chore",
+      "section": "Chore"
+    },
+    {
+      "type": "style",
+      "section": "Styling"
+    },
+    {
+      "type": "docs",
+      "section": "Documentation updates"
+    },
+    {
+      "type": "refactor",
+      "section": "Refactors"
+    },
+    {
+      "type": "perf",
+      "section": "Performance improvements"
+    }
+  ]
+}
