@@ -1,9 +1,9 @@
 import React from 'react'
 import { Route, BrowserRouter, Switch, Redirect } from 'react-router-dom'
 
-import * as routes from './config/routes'
-import { Home, Users } from './pages'
-import { Layout } from './components'
+import * as routes from '@config/routes'
+import { Home, Users } from '@pages'
+import { Layout } from '@components'
 
 export const AppRouter: React.FC = () => (
   <BrowserRouter>

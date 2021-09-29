@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { Home } from './Home'
 
-jest.mock('../../containers', () => ({ Counter: () => <div /> }))
+jest.mock('@containers', () => ({ Counter: () => <div /> }))
 
 test('renders learn react link', () => {
   render(<Home />)
