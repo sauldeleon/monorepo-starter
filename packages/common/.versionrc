@@ -1,6 +1,6 @@
 {
   "path": ".",
-  "tag-prefix": "@myscope-common",
+  "tag-prefix": "@myscope-common@",
   "releaseCommitMessageFormat": "chore(release): @myscope-common@{{currentTag}}",
   "types": [
     {

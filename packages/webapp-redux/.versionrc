@@ -1,6 +1,6 @@
 {
   "path": ".",
-  "tag-prefix": "@myscope-webapp-redux",
+  "tag-prefix": "@myscope-webapp-redux@",
   "releaseCommitMessageFormat": "chore(release): @myscope-webapp-redux@{{currentTag}}",
   "types": [
     {

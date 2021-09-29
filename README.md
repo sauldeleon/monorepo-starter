@@ -15,14 +15,17 @@ Below you will find some information on how to perform common tasks.<br>
     - [`yarn build:webapp`](#yarn-buildwebapp)
     - [`yarn build:dep:webapp`](#yarn-builddepwebapp)
     - [`yarn test:webapp`](#yarn-testwebapp)
+    - [`yarn release:webapp`](#yarn-releasewebapp)
     - [`yarn start:webapp-redux`](#yarn-startwebapp-redux)
     - [`yarn build:webapp-redux`](#yarn-buildwebapp-redux)
     - [`yarn build:dep:webapp-redux`](#yarn-builddepwebapp-redux)
     - [`yarn test:webapp-redux`](#yarn-testwebapp-redux)
+    - [`yarn release:webapp-redux`](#yarn-releasewebapp-redux)
     - [`yarn start:common`](#yarn-startcommon)
     - [`yarn build:common`](#yarn-buildcommon)
     - [`yarn build:dep:common`](#yarn-builddepcommon)
     - [`yarn test:common`](#yarn-testcommon)
+    - [`yarn release:common`](#yarn-releasecommon)
     - [`yarn clean`](#yarn-clean)
     - [`yarn clean:install`](#yarn-cleaninstall)
     - [`yarn build`](#yarn-build)
@@ -31,10 +34,6 @@ Below you will find some information on how to perform common tasks.<br>
     - [`yarn test:ci`](#yarn-testci)
     - [`yarn lint`](#yarn-lint)
     - [`yarn release`](#yarn-release)
-    - [`yarn release:patch`](#yarn-releasepatch)
-    - [`yarn release:minor`](#yarn-releaseminor)
-    - [`yarn release:major`](#yarn-releasemajor)
-    - [`yarn release:tags`](#yarn-releasetags)
     - [`yarn ncu`](#yarn-ncu)
   - [Generate changelog](#generate-changelog)
   - [Installing a Dependency](#installing-a-dependency)
@@ -135,6 +134,11 @@ Same as `yarn build:webapp` but it moves the files to the root directory.
 Launches the test runner for the Main web application.<br>
 See the section about [running tests](#running-tests) for more information.
 
+### `yarn release:webapp`
+
+It launches a release for Webapp application.<br>
+If there is any commit since the last release with `feat` then it will do a minor bump, if `fix` then it will do a patch bump and if a `!` is on the commit message, it will a BREAKING CHANGE and will do a major bump.<br>
+
 ### `yarn start:webapp-redux`
 
 Runs the Redux web application in the development mode.<br>
@@ -158,6 +162,11 @@ Same as `yarn build:webapp-redux` but it moves the files to the root directory.
 Launches the test runner for the Redux web application.<br>
 See the section about [running tests](#running-tests) for more information.
 
+### `yarn release:webapp-redux`
+
+It launches a release for Webapp Redux application.<br>
+If there is any commit since the last release with `feat` then it will do a minor bump, if `fix` then it will do a patch bump and if a `!` is on the commit message, it will a BREAKING CHANGE and will do a major bump.<br>
+
 ### `yarn start:common`
 
 Runs the Common components library in the development mode.<br>
@@ -180,6 +189,11 @@ Same as `yarn build:common` but it moves the files to the root directory.
 
 Launches the test runner for the Common components library.<br>
 See the section about [running tests](#running-tests) for more information.
+
+### `yarn release:common`
+
+It launches a release for Common library.<br>
+If there is any commit since the last release with `feat` then it will do a minor bump, if `fix` then it will do a patch bump and if a `!` is on the commit message, it will a BREAKING CHANGE and will do a major bump.<br>
 
 ### `yarn clean`
 
@@ -216,38 +230,20 @@ Launches eslint checker in the entire monorepo.<br>
 
 Releases an automatic version bump based on commit messages and generates the Changelog.md.<br>
 
-### `yarn release:patch`
-
-Releases a patch version bump based on commit messages and generates the Changelog.md. <br>
-
-### `yarn release:minor`
-
-Releases a minor version bump based on commit messages and generates the Changelog.md. <br>
-
-### `yarn release:major`
-
-Releases a major version bump based on commit messages and generates the Changelog.md.<br>
-
-### `yarn release:tags`
-
-Releases an automatic version bump based on commit messages and generates the Changelog.md. It generate Git tags and pushes them.<br>
-
 ### `yarn ncu`
 
 Checks the dependencies in all `package.json` files to see if there are updates.<br>
 
 ## Generate changelog
 
-To generate the changelog from the latest git tag, follow the next steps:
+To generate the changelog from the latest git tag for a given package, follow the next steps:
 
-1. Open a branch `chore/release` from latest `master`
-2. Execute one of the `release` commands (_release_, _release:patch_, _release:minor_, _release:major_)
-   1. This command will update the [CHANGELOG.md](./CHANGELOG.md) adding the commits from the latest git tag
-   2. Then an automatic commit will be created and will tag the commit with the new tag according to the version number of the main `package.json`
-3. Push the changes with the tags with `git push --follow-tags origin chore/release`
-4. Open a PR and **merge** the `chore/release` branch (DO NOT SQUASH IT) into `master` branch
-
-You can run `yarn release:tags` that will run steps `2` to `3` but it will decide automatically which version to apply, (_patch_, _minor_, _major_)
+1. Open a branch `chore/release-packageName` from latest `master`
+2. Execute one of the `release` commands (_release_, _release:packageName_)
+   1. This command will update the `CHANGELOG.md` of the given package, or all `CHANGELOG.md` files if not package has been selected adding the commits from the latest git tag for each package
+   2. Then an automatic commit will be created and will tag the commit with the new tag according to the version number of the package json file of the package. The package.json of the root directory will always be 1.0.0
+3. Push the changes with the tags with `git push --follow-tags origin chore/release-packageName`
+4. Open a PR and **merge** the `chore/release-packageName` branch (**DO NOT SQUASH IT**) into `master` branch
 
 ## Installing a Dependency
 

@@ -1,6 +1,6 @@
 {
   "path": ".",
-  "tag-prefix": "@myscope-webapp",
+  "tag-prefix": "@myscope-webapp@",
   "releaseCommitMessageFormat": "chore(release): @myscope-webapp@{{currentTag}}",
   "types": [
     {
